@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		CE4766B124193F0F006F8858 /* JobQueue.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE4766B024193F0F006F8858 /* JobQueue.swift */; };
 		F719AE0022C54873009D08D3 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F719ADFF22C54873009D08D3 /* AppDelegate.swift */; };
 		F719AE0722C54877009D08D3 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F719AE0622C54877009D08D3 /* Assets.xcassets */; };
 		F719AE2022C548CA009D08D3 /* ArrayManipulator.swift in Sources */ = {isa = PBXBuildFile; fileRef = F719AE1622C548C9009D08D3 /* ArrayManipulator.swift */; };
@@ -29,11 +30,11 @@
 		F719AE4722C5490B009D08D3 /* SetViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F719AE3A22C5490B009D08D3 /* SetViewController.swift */; };
 		F719AE4822C5490B009D08D3 /* DataStructuresViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F719AE3B22C5490B009D08D3 /* DataStructuresViewController.swift */; };
 		F719AE4A22C5490B009D08D3 /* DataStructures.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F719AE3D22C5490B009D08D3 /* DataStructures.storyboard */; };
-		F719AE4E22C54945009D08D3 /* AlgoProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = F719AE4C22C54944009D08D3 /* AlgoProvider.swift */; };
 		F719AE4F22C54945009D08D3 /* Services.swift in Sources */ = {isa = PBXBuildFile; fileRef = F719AE4D22C54944009D08D3 /* Services.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		CE4766B024193F0F006F8858 /* JobQueue.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JobQueue.swift; sourceTree = "<group>"; };
 		F719ADFC22C54873009D08D3 /* DataStructuresProfiling.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DataStructuresProfiling.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F719ADFF22C54873009D08D3 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		F719AE0622C54877009D08D3 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -58,7 +59,6 @@
 		F719AE3A22C5490B009D08D3 /* SetViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SetViewController.swift; sourceTree = "<group>"; };
 		F719AE3B22C5490B009D08D3 /* DataStructuresViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DataStructuresViewController.swift; sourceTree = "<group>"; };
 		F719AE3D22C5490B009D08D3 /* DataStructures.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = DataStructures.storyboard; sourceTree = "<group>"; };
-		F719AE4C22C54944009D08D3 /* AlgoProvider.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AlgoProvider.swift; sourceTree = "<group>"; };
 		F719AE4D22C54944009D08D3 /* Services.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Services.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -73,6 +73,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		CE4766AD24193E73006F8858 /* JobSheduler */ = {
+			isa = PBXGroup;
+			children = (
+				CE4766B024193F0F006F8858 /* JobQueue.swift */,
+			);
+			path = JobSheduler;
+			sourceTree = "<group>";
+		};
 		F719ADF322C54872009D08D3 = {
 			isa = PBXGroup;
 			children = (
@@ -211,7 +219,7 @@
 		F719AE4B22C54935009D08D3 /* Services */ = {
 			isa = PBXGroup;
 			children = (
-				F719AE4C22C54944009D08D3 /* AlgoProvider.swift */,
+				CE4766AD24193E73006F8858 /* JobSheduler */,
 				F719AE4D22C54944009D08D3 /* Services.swift */,
 			);
 			path = Services;
@@ -293,6 +301,7 @@
 				F719AE4722C5490B009D08D3 /* SetViewController.swift in Sources */,
 				F719AE3E22C5490B009D08D3 /* FeedDataProvider.swift in Sources */,
 				F719AE4522C5490B009D08D3 /* ArrayViewController.swift in Sources */,
+				CE4766B124193F0F006F8858 /* JobQueue.swift in Sources */,
 				F719AE2322C548CA009D08D3 /* SwiftDictionaryManipulator.swift in Sources */,
 				F719AE4622C5490B009D08D3 /* DictionaryViewController.swift in Sources */,
 				F719AE2522C548CA009D08D3 /* SwiftSetManipulator.swift in Sources */,
@@ -308,7 +317,6 @@
 				F719AE2122C548CA009D08D3 /* SwiftArrayManipulator.swift in Sources */,
 				F719AE4022C5490B009D08D3 /* FeedThirdViewController.swift in Sources */,
 				F719AE0022C54873009D08D3 /* AppDelegate.swift in Sources */,
-				F719AE4E22C54945009D08D3 /* AlgoProvider.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
