@@ -7,7 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		CE4766B124193F0F006F8858 /* JobQueue.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE4766B024193F0F006F8858 /* JobQueue.swift */; };
+		CE4766B124193F0F006F8858 /* JobScheduler.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE4766B024193F0F006F8858 /* JobScheduler.swift */; };
+		CE4766B3241A8015006F8858 /* MyTableHeaderView.xib in Resources */ = {isa = PBXBuildFile; fileRef = CE4766B2241A8015006F8858 /* MyTableHeaderView.xib */; };
+		CE4766B5241A803D006F8858 /* MyTableHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE4766B4241A803D006F8858 /* MyTableHeaderView.swift */; };
+		CE4766B7241A9724006F8858 /* NibView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE4766B6241A9724006F8858 /* NibView.swift */; };
 		F719AE0022C54873009D08D3 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F719ADFF22C54873009D08D3 /* AppDelegate.swift */; };
 		F719AE0722C54877009D08D3 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F719AE0622C54877009D08D3 /* Assets.xcassets */; };
 		F719AE2022C548CA009D08D3 /* ArrayManipulator.swift in Sources */ = {isa = PBXBuildFile; fileRef = F719AE1622C548C9009D08D3 /* ArrayManipulator.swift */; };
@@ -34,7 +37,10 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		CE4766B024193F0F006F8858 /* JobQueue.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JobQueue.swift; sourceTree = "<group>"; };
+		CE4766B024193F0F006F8858 /* JobScheduler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JobScheduler.swift; sourceTree = "<group>"; };
+		CE4766B2241A8015006F8858 /* MyTableHeaderView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MyTableHeaderView.xib; sourceTree = "<group>"; };
+		CE4766B4241A803D006F8858 /* MyTableHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyTableHeaderView.swift; sourceTree = "<group>"; };
+		CE4766B6241A9724006F8858 /* NibView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NibView.swift; sourceTree = "<group>"; };
 		F719ADFC22C54873009D08D3 /* DataStructuresProfiling.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DataStructuresProfiling.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F719ADFF22C54873009D08D3 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		F719AE0622C54877009D08D3 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -73,14 +79,6 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		CE4766AD24193E73006F8858 /* JobSheduler */ = {
-			isa = PBXGroup;
-			children = (
-				CE4766B024193F0F006F8858 /* JobQueue.swift */,
-			);
-			path = JobSheduler;
-			sourceTree = "<group>";
-		};
 		F719ADF322C54872009D08D3 = {
 			isa = PBXGroup;
 			children = (
@@ -200,6 +198,9 @@
 			children = (
 				F719AE3D22C5490B009D08D3 /* DataStructures.storyboard */,
 				F719AE3522C5490B009D08D3 /* Feed.storyboard */,
+				CE4766B2241A8015006F8858 /* MyTableHeaderView.xib */,
+				CE4766B4241A803D006F8858 /* MyTableHeaderView.swift */,
+				CE4766B6241A9724006F8858 /* NibView.swift */,
 				F719AE3722C5490B009D08D3 /* DataStructures */,
 			);
 			path = Views;
@@ -219,8 +220,8 @@
 		F719AE4B22C54935009D08D3 /* Services */ = {
 			isa = PBXGroup;
 			children = (
-				CE4766AD24193E73006F8858 /* JobSheduler */,
 				F719AE4D22C54944009D08D3 /* Services.swift */,
+				CE4766B024193F0F006F8858 /* JobScheduler.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -283,6 +284,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CE4766B3241A8015006F8858 /* MyTableHeaderView.xib in Resources */,
 				F719AE4422C5490B009D08D3 /* Feed.storyboard in Resources */,
 				F719AE4A22C5490B009D08D3 /* DataStructures.storyboard in Resources */,
 				F719AE0722C54877009D08D3 /* Assets.xcassets in Resources */,
@@ -301,7 +303,7 @@
 				F719AE4722C5490B009D08D3 /* SetViewController.swift in Sources */,
 				F719AE3E22C5490B009D08D3 /* FeedDataProvider.swift in Sources */,
 				F719AE4522C5490B009D08D3 /* ArrayViewController.swift in Sources */,
-				CE4766B124193F0F006F8858 /* JobQueue.swift in Sources */,
+				CE4766B124193F0F006F8858 /* JobScheduler.swift in Sources */,
 				F719AE2322C548CA009D08D3 /* SwiftDictionaryManipulator.swift in Sources */,
 				F719AE4622C5490B009D08D3 /* DictionaryViewController.swift in Sources */,
 				F719AE2522C548CA009D08D3 /* SwiftSetManipulator.swift in Sources */,
@@ -314,6 +316,8 @@
 				F719AE2022C548CA009D08D3 /* ArrayManipulator.swift in Sources */,
 				F719AE2422C548CA009D08D3 /* DictionaryManipulator.swift in Sources */,
 				F719AE4122C5490B009D08D3 /* SessionSummaryViewController.swift in Sources */,
+				CE4766B5241A803D006F8858 /* MyTableHeaderView.swift in Sources */,
+				CE4766B7241A9724006F8858 /* NibView.swift in Sources */,
 				F719AE2122C548CA009D08D3 /* SwiftArrayManipulator.swift in Sources */,
 				F719AE4022C5490B009D08D3 /* FeedThirdViewController.swift in Sources */,
 				F719AE0022C54873009D08D3 /* AppDelegate.swift in Sources */,
