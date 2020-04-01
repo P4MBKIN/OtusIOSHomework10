@@ -16,6 +16,8 @@ class FeedViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        let headerNib = UINib.init(nibName: "MyHeaderView", bundle: Bundle.main)
+        feedTableView.register(headerNib, forHeaderFooterViewReuseIdentifier: "MyHeaderView")
     }
 }
 
@@ -62,13 +64,28 @@ extension FeedViewController: UITableViewDelegate {
             }
         }
         
-        
         if let pushViewController = vc {
             self.navigationController?.pushViewController(pushViewController, animated: true)
         }
     }
     
-//    func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
-//
-//    }
+    func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
+        
+        let headerView = tableView.dequeueReusableHeaderFooterView(withIdentifier: "MyHeaderView") as! MyHeaderView
+        headerView.delegate = self
+        return headerView
+    }
+    
+    func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
+        
+        return 115
+    }
+}
+
+extension FeedViewController: MyHeaderDelegate {
+    
+    func runTests(numberOfTests: Int, numberOfThreads: Int, completion: () -> Void) {
+        // TODO
+        completion()
+    }
 }

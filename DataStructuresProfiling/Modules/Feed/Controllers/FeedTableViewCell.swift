@@ -13,8 +13,11 @@ class FeedTableViewCell: UITableViewCell {
     static let reuseID = String(describing: FeedTableViewCell.self)
     
     @IBOutlet weak var nameLabel: UILabel!
+    @IBOutlet weak var detailLabel: UILabel!
     
-    func updateCell(name: String) {
+    func updateCell(name: String, detail: String = "", detailColor: UIColor = .black) {
         nameLabel.text = name
+        detailLabel.text = detail
+        detailLabel.backgroundColor = detailColor
     }
 }

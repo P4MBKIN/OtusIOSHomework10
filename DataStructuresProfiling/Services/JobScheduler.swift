@@ -11,13 +11,13 @@ import Dispatch
 
 struct JobQueue {
 
-    typealias JobComplition = (job: () -> Void, complition: () -> Void)
+    typealias JobComplition = (job: () -> Void, complition: (TimeInterval) -> Void)
     
     private var jobs: [JobComplition] = []
     
     var count: Int { get { return jobs.count } }
     
-    mutating func add(job: @escaping () -> Void, complition: @escaping () -> Void) { jobs.insert((job, complition), at: 0) }
+    mutating func add(job: @escaping () -> Void, complition: @escaping (TimeInterval) -> Void) { jobs.insert((job, complition), at: 0) }
 }
 
 extension JobQueue: IteratorProtocol, Sequence {
@@ -40,10 +40,12 @@ class JobScheduler {
         for elem in queue {
             concurrentQueue.async {
                 self.semaphore.wait()
-                elem.job()
+                let time = Profiler.runClosureForTime {
+                    elem.job()
+                }
                 self.semaphore.signal()
                 DispatchQueue.main.async {
-                    elem.complition()
+                    elem.complition(time)
                 }
             }
         }
