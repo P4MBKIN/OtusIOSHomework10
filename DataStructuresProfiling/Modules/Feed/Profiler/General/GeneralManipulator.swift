@@ -7,3 +7,7 @@
 //
 
 import Foundation
+
+protocol GeneralManipulator {
+    func runCreation1000(times: Int, numberOfThreads: Int, jobCompletions: [CollectionType: (TimeInterval) -> Void], completion: @escaping () -> Void)
+}

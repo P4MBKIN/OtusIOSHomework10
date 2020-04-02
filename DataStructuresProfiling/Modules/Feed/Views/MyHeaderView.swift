@@ -9,7 +9,7 @@
 import UIKit
 
 protocol MyHeaderDelegate {
-    func runTests(numberOfTests: Int, numberOfThreads: Int, completion: () -> Void)
+    func runTests(numberOfTests: Int, numberOfThreads: Int, completion: @escaping () -> Void)
 }
 
 class MyHeaderView: UITableViewHeaderFooterView {
@@ -39,7 +39,7 @@ class MyHeaderView: UITableViewHeaderFooterView {
     @IBAction func runButtonTouched(_ sender: UIButton) {
         runButton.isEnabled = false
         self.delegate?.runTests(numberOfTests: numberOfTests, numberOfThreads: numberOfThreads) {
-            runButton.isEnabled = true
+            self.runButton.isEnabled = true
         }
     }
     @IBAction func stepperChanged(_ sender: UIStepper) {

@@ -15,9 +15,9 @@ class FeedTableViewCell: UITableViewCell {
     @IBOutlet weak var nameLabel: UILabel!
     @IBOutlet weak var detailLabel: UILabel!
     
-    func updateCell(name: String, detail: String = "", detailColor: UIColor = .black) {
-        nameLabel.text = name
-        detailLabel.text = detail
-        detailLabel.backgroundColor = detailColor
+    func updateCell(type: CollectionType, time: TimeInterval, color: UIColor) {
+        nameLabel.text = type.rawValue
+        detailLabel.text = (time < 0) ? "" : Services.timeNumberFormatter.string(from: time as NSNumber)
+        detailLabel.textColor = color
     }
 }

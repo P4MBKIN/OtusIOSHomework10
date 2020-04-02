@@ -10,7 +10,8 @@
 		CE4766B124193F0F006F8858 /* JobScheduler.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE4766B024193F0F006F8858 /* JobScheduler.swift */; };
 		E969A24C2433E2CE00ADED5B /* MyHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E969A24B2433E2CE00ADED5B /* MyHeaderView.swift */; };
 		E969A24E2433E30300ADED5B /* MyHeaderView.xib in Resources */ = {isa = PBXBuildFile; fileRef = E969A24D2433E30300ADED5B /* MyHeaderView.xib */; };
-		E969A2512434023D00ADED5B /* GeneralManipulator.swift in Sources */ = {isa = PBXBuildFile; fileRef = E969A2502434023D00ADED5B /* GeneralManipulator.swift */; };
+		E969A2512434023D00ADED5B /* SwiftGeneralManipulator.swift in Sources */ = {isa = PBXBuildFile; fileRef = E969A2502434023D00ADED5B /* SwiftGeneralManipulator.swift */; };
+		E969A2532435347A00ADED5B /* GeneralManipulator.swift in Sources */ = {isa = PBXBuildFile; fileRef = E969A2522435347A00ADED5B /* GeneralManipulator.swift */; };
 		F719AE0022C54873009D08D3 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F719ADFF22C54873009D08D3 /* AppDelegate.swift */; };
 		F719AE0722C54877009D08D3 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F719AE0622C54877009D08D3 /* Assets.xcassets */; };
 		F719AE2022C548CA009D08D3 /* ArrayManipulator.swift in Sources */ = {isa = PBXBuildFile; fileRef = F719AE1622C548C9009D08D3 /* ArrayManipulator.swift */; };
@@ -40,7 +41,8 @@
 		CE4766B024193F0F006F8858 /* JobScheduler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JobScheduler.swift; sourceTree = "<group>"; };
 		E969A24B2433E2CE00ADED5B /* MyHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyHeaderView.swift; sourceTree = "<group>"; };
 		E969A24D2433E30300ADED5B /* MyHeaderView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MyHeaderView.xib; sourceTree = "<group>"; };
-		E969A2502434023D00ADED5B /* GeneralManipulator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GeneralManipulator.swift; sourceTree = "<group>"; };
+		E969A2502434023D00ADED5B /* SwiftGeneralManipulator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwiftGeneralManipulator.swift; sourceTree = "<group>"; };
+		E969A2522435347A00ADED5B /* GeneralManipulator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GeneralManipulator.swift; sourceTree = "<group>"; };
 		F719ADFC22C54873009D08D3 /* DataStructuresProfiling.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DataStructuresProfiling.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F719ADFF22C54873009D08D3 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		F719AE0622C54877009D08D3 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -82,7 +84,8 @@
 		E969A24F2434021400ADED5B /* General */ = {
 			isa = PBXGroup;
 			children = (
-				E969A2502434023D00ADED5B /* GeneralManipulator.swift */,
+				E969A2502434023D00ADED5B /* SwiftGeneralManipulator.swift */,
+				E969A2522435347A00ADED5B /* GeneralManipulator.swift */,
 			);
 			path = General;
 			sourceTree = "<group>";
@@ -312,7 +315,7 @@
 				F719AE3E22C5490B009D08D3 /* FeedDataProvider.swift in Sources */,
 				F719AE4522C5490B009D08D3 /* ArrayViewController.swift in Sources */,
 				CE4766B124193F0F006F8858 /* JobScheduler.swift in Sources */,
-				E969A2512434023D00ADED5B /* GeneralManipulator.swift in Sources */,
+				E969A2512434023D00ADED5B /* SwiftGeneralManipulator.swift in Sources */,
 				F719AE2322C548CA009D08D3 /* SwiftDictionaryManipulator.swift in Sources */,
 				E969A24C2433E2CE00ADED5B /* MyHeaderView.swift in Sources */,
 				F719AE4622C5490B009D08D3 /* DictionaryViewController.swift in Sources */,
@@ -327,6 +330,7 @@
 				F719AE2422C548CA009D08D3 /* DictionaryManipulator.swift in Sources */,
 				F719AE4122C5490B009D08D3 /* SessionSummaryViewController.swift in Sources */,
 				F719AE2122C548CA009D08D3 /* SwiftArrayManipulator.swift in Sources */,
+				E969A2532435347A00ADED5B /* GeneralManipulator.swift in Sources */,
 				F719AE4022C5490B009D08D3 /* FeedThirdViewController.swift in Sources */,
 				F719AE0022C54873009D08D3 /* AppDelegate.swift in Sources */,
 			);

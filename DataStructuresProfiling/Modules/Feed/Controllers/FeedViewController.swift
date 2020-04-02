@@ -10,7 +10,9 @@ import UIKit
 
 class FeedViewController: UIViewController {
     
-    private let feedData = Services.feedProvider.feedMockData()
+    private let generalManipulator: GeneralManipulator = SwiftGeneralManipulator()
+    
+    private var feedData = Services.feedProvider.feedMockData()
     
     @IBOutlet weak var feedTableView: UITableView!
     
@@ -18,6 +20,20 @@ class FeedViewController: UIViewController {
         super.viewDidLoad()
         let headerNib = UINib.init(nibName: "MyHeaderView", bundle: Bundle.main)
         feedTableView.register(headerNib, forHeaderFooterViewReuseIdentifier: "MyHeaderView")
+    }
+    
+    private func updateCellForType(_ type: CollectionType, time: TimeInterval) {
+        feedData.indices.forEach{ feedData[$0].color = .black}
+        if let index = feedData.firstIndex(where: { $0.type == type}) {
+            feedData[index].time = time
+        }
+        let sortedFeed = feedData.filter({ $0.time > 0}).sorted{ $0.time < $1.time}
+        if let maxIndex = feedData.firstIndex(where: { $0.type == sortedFeed.last?.type}), let minIndex = feedData.firstIndex(where: { $0.type == sortedFeed.first?.type}) {
+            feedData[maxIndex].color = .red
+            feedData[minIndex].color = .green
+        }
+        let indexPaths = (0..<feedData.count).map{ IndexPath(row: $0, section: 0)}
+        feedTableView.reloadRows(at: indexPaths, with: .none)
     }
 }
 
@@ -33,7 +49,7 @@ extension FeedViewController: UITableViewDataSource {
         let cell = feedTableView.dequeueReusableCell(withIdentifier: FeedTableViewCell.reuseID, for: indexPath) as? FeedTableViewCell
         guard let feedCell = cell else { return UITableViewCell() }
         
-        feedCell.updateCell(name: feedData[indexPath.row].name)
+        feedCell.updateCell(type: feedData[indexPath.row].type, time: feedData[indexPath.row].time, color: feedData[indexPath.row].color)
         return feedCell
     }
 }
@@ -76,16 +92,19 @@ extension FeedViewController: UITableViewDelegate {
         return headerView
     }
     
-    func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
-        
-        return 115
-    }
+    func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat { return 115 }
 }
 
 extension FeedViewController: MyHeaderDelegate {
     
-    func runTests(numberOfTests: Int, numberOfThreads: Int, completion: () -> Void) {
-        // TODO
-        completion()
+    func runTests(numberOfTests: Int, numberOfThreads: Int, completion: @escaping () -> Void) {
+        
+        var completions = [CollectionType: (TimeInterval) -> Void]()
+        for feed in feedData {
+            completions[feed.type] = { time in
+                self.updateCellForType(feed.type, time: time)
+            }
+        }
+        generalManipulator.runCreation1000(times: numberOfTests, numberOfThreads: numberOfThreads, jobCompletions: completions, completion: completion)
     }
 }

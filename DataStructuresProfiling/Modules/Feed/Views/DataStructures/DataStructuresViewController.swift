@@ -28,23 +28,6 @@ class DataStructuresViewController: UIViewController, UITableViewDataSource, UIT
 
   fileprivate var numberOfItems: Int = 1000 //Default to 1000
 
-  //MARK: Lazy-instantiated variables
-
-  lazy fileprivate var numberFormatter: NumberFormatter = {
-    var formatter = NumberFormatter()
-    formatter.numberStyle = NumberFormatter.Style.decimal
-    return formatter
-    }()
-
-  lazy fileprivate var timeNumberFormatter: NumberFormatter = {
-    var formatter = NumberFormatter()
-    formatter.numberStyle = NumberFormatter.Style.decimal
-    let digits = 6
-    formatter.minimumFractionDigits = digits
-    formatter.maximumFractionDigits = digits
-    return formatter
-    }()
-
   //MARK: - Methods
 
   //MARK: Init
@@ -76,7 +59,7 @@ class DataStructuresViewController: UIViewController, UITableViewDataSource, UIT
   //MARK: Convenience methods
 
   func updateCountLabel() {
-    countLabel.text = "Number of items: \(numberFormatter.string(from: numberOfItems as NSNumber)!)"
+    countLabel.text = "Number of items: \(Services.numberFormatter.string(from: numberOfItems as NSNumber)!)"
   }
 
   func setSliderValueProgrammatically(_ value: Int) {
@@ -96,7 +79,7 @@ class DataStructuresViewController: UIViewController, UITableViewDataSource, UIT
   }
 
   func formattedTime(_ time: TimeInterval) -> String? {
-    return timeNumberFormatter.string(from: time as NSNumber)
+    return Services.timeNumberFormatter.string(from: time as NSNumber)
   }
 
   //MARK: IBActions

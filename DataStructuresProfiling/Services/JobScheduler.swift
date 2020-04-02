@@ -11,17 +11,17 @@ import Dispatch
 
 struct JobQueue {
 
-    typealias JobComplition = (job: () -> Void, complition: (TimeInterval) -> Void)
+    typealias JobCompletion = (job: () -> TimeInterval, completion: (TimeInterval) -> Void)
     
-    private var jobs: [JobComplition] = []
+    private var jobs: [JobCompletion] = []
     
     var count: Int { get { return jobs.count } }
     
-    mutating func add(job: @escaping () -> Void, complition: @escaping (TimeInterval) -> Void) { jobs.insert((job, complition), at: 0) }
+    mutating func add(job: @escaping () -> TimeInterval, completion: @escaping (TimeInterval) -> Void) { jobs.insert((job, completion), at: 0) }
 }
 
 extension JobQueue: IteratorProtocol, Sequence {
-    mutating func next() -> JobComplition? { return jobs.popLast() }
+    mutating func next() -> JobCompletion? { return jobs.popLast() }
 }
 
 class JobScheduler {
@@ -29,25 +29,26 @@ class JobScheduler {
     private let queue: JobQueue
     private let concurrentQueue: DispatchQueue
     private let semaphore: DispatchSemaphore
+    private let completion: () -> Void
     
-    init(queue: JobQueue, count: Int, qos: DispatchQoS) {
+    init(queue: JobQueue, count: Int, qos: DispatchQoS, completion: @escaping () -> Void) {
         self.queue = queue
         self.concurrentQueue = DispatchQueue(label: "jobScheduler.run", qos: qos, attributes: .concurrent)
         self.semaphore = DispatchSemaphore(value: count)
+        self.completion = completion
     }
     
     func run() {
         for elem in queue {
+            self.semaphore.wait()
             concurrentQueue.async {
-                self.semaphore.wait()
-                let time = Profiler.runClosureForTime {
-                    elem.job()
-                }
+                let time = elem.job()
                 self.semaphore.signal()
                 DispatchQueue.main.async {
-                    elem.complition(time)
+                    elem.completion(time)
                 }
             }
         }
+        self.completion()
     }
 }

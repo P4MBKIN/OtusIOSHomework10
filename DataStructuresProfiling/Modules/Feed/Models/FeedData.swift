@@ -6,8 +6,16 @@
 //  Copyright © 2019 GkFoxes. All rights reserved.
 //
 
-import Foundation
+import UIKit
+
+enum CollectionType: String {
+    case array = "Array"
+    case dictionary = "Dictionary"
+    case set = "Set"
+}
 
 struct FeedData {
-    let name: String
+    let type: CollectionType
+    var time: TimeInterval
+    var color: UIColor
 }
