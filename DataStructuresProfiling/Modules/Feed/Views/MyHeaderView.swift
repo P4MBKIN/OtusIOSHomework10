@@ -38,8 +38,10 @@ class MyHeaderView: UITableViewHeaderFooterView {
     
     @IBAction func runButtonTouched(_ sender: UIButton) {
         runButton.isEnabled = false
-        self.delegate?.runTests(numberOfTests: numberOfTests, numberOfThreads: numberOfThreads) {
-            self.runButton.isEnabled = true
+        DispatchQueue.global(qos: .default).async {
+            self.delegate?.runTests(numberOfTests: self.numberOfTests, numberOfThreads: self.numberOfThreads) {
+                self.runButton.isEnabled = true
+            }
         }
     }
     @IBAction func stepperChanged(_ sender: UIStepper) {

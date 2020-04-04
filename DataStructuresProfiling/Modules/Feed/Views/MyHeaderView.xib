@@ -34,7 +34,7 @@
                     <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
                     <state key="normal" title="Run"/>
                     <connections>
-                        <action selector="runButtonTouched:" destination="-2" eventType="touchUpInside" id="Vs6-9p-DW4"/>
+                        <action selector="runButtonTouched:" destination="-2" eventType="touchUpInside" id="qdT-fd-yiu"/>
                     </connections>
                 </button>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Count of tests: 10" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sdo-Lb-4Ug">

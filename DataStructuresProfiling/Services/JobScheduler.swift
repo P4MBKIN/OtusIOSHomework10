@@ -39,9 +39,10 @@ class JobScheduler {
     }
     
     func run() {
+        let jobGroup = DispatchGroup()
         for elem in queue {
             self.semaphore.wait()
-            concurrentQueue.async {
+            concurrentQueue.async(group: jobGroup) {
                 let time = elem.job()
                 self.semaphore.signal()
                 DispatchQueue.main.async {
@@ -49,6 +50,8 @@ class JobScheduler {
                 }
             }
         }
-        self.completion()
+        jobGroup.notify(queue: DispatchQueue.main) {
+            self.completion()
+        }
     }
 }
